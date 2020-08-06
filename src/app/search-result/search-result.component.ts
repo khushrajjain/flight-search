@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultComponent implements OnInit {
 
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return value;
+  }
   flights:[
     {
         "_id": "AI-01",

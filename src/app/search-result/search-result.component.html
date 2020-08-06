@@ -1,4 +1,16 @@
 <div class="container">
+  <p>
+    <mat-label>Refine Flight Search ₹</mat-label>
+    <mat-slider
+    color=warn
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="1000"
+    min="1"
+    max="100000"></mat-slider>
+  </p>
+</div>
+<div class="container">
  
 
     <div class="card mb-3 " style="overflow:auto;margin:auto;" *ngFor="let aa of [{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'}];">
