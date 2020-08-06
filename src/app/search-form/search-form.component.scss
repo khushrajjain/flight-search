@@ -8,3 +8,16 @@ mat-icon{
     vertical-align: sub;
     margin: 5px;
 }
+
+.search{
+  min-width: 230px;
+  border:2px solid black;
+}
+
+.container{
+  float: left;
+  // background-color: red;
+  max-width: 600px;
+  height: 100%;
+  overflow: auto;
+}

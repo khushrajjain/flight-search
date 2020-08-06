@@ -1,5 +1,5 @@
-<div class="container text-center">
-  <div style="margin: auto;">
+<div class="container text-center shadow" >
+  <h2><mat-icon>search</mat-icon> Search</h2>
     <form [formGroup]="form"  method="post" (click)="onSubmit(group.value)">
       <p>
         <mat-form-field appearance="outline">
@@ -12,7 +12,6 @@
            [matAutocomplete]="autodep">
           <mat-autocomplete #autodep="matAutocomplete">
             <mat-option [(value)]="city.city_name" 
-            
             *ngFor="let city of filteredOptionsDep | async">
             {{city.city_name}} ({{city.IATA_code}})</mat-option>
           </mat-autocomplete>
@@ -84,8 +83,9 @@
       </p>
       <p>
 
-        <button mat-stroked-button type="submit" style="min-width: 230px;border:2px solid black">Search</button>
+        <button mat-stroked-button type="submit" class="search">Search</button>
       </p>
     </form>
-  </div>
+
+   
 </div> 

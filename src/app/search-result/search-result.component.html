@@ -1,60 +1,64 @@
-<div class="container text-center">
+<div class="container text-center" *ngIf="!flightList.length">
+  <p>
+
+    <img src="https://image.freepik.com/free-vector/air-travel-ticket-buying-app-people-buying-tickets-online-phone-booking-service-tourism-vacation-travel-concept-illustration-flight-search-tool-tourists-making-reservation_229548-132.jpg" alt="" srcset="">
+  </p>
+  <div>
+    <img src="https://cdn.ndtv.com/tech/images/flight_search_logo_website_screenshot.jpg" alt="" srcset="">
+  </div>
+</div>
+<div>
+<div class="container text-center" *ngIf="flightList.length">
   <p>
     <mat-label>Refine Flight Search <span style="font-size:large;">₹</span></mat-label>
-    <mat-slider
-    color=warn
-    thumbLabel
-    [displayWith]="formatLabel"
-    tickInterval="1000"
-    min="1"
-    max="100000"></mat-slider>
+    <mat-slider color=warn thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
   </p>
 </div>
-<div class="container">
- 
+<div class="container" >
 
-    <div class="card mb-3 " style="overflow:auto;margin:auto;max-width:600px" *ngFor="let flight of flightList">
 
-       <div style="display: flex;" >
+  <div class="card mb-3" *ngFor="let flight of flightList">
 
-            <span class="logo">
-              <img src="https://www.webdesignerdepot.com/cdn-origin/uploads/2009/03/qantas2.gif" alt="..." 
-              class="rounded-sm" 
-              style="width: 80px">
-            </span>
+    <div style="display: flex;">
 
-            <div style="display: inline;" class="depa text-center">
-              <span>
-                {{flight.depart}}</span>
-                <br><span class="sub">{{flight.from_city_id}}</span>
-            </div>
+      <span class="logo">
+        <img src="https://www.webdesignerdepot.com/cdn-origin/uploads/2009/03/qantas2.gif" alt="..." class="rounded-sm"
+          style="width: 80px">
+      </span>
 
-            <div style="display: inline-block;margin:15px"  class="duration text-center">
-              <mat-icon style="transform: rotate(90deg);">flight </mat-icon><br>
-              <span class="sub">{{flight.duration}}</span>
-
-            </div>
-            <div style="display: inline;" class="depa text-center">
-              <span>
-                {{flight.arrive}}</span>
-                <br><span class="sub">{{flight.to_city_id}}</span>
-            </div>
-
-            <span class="example-spacer"></span>
-             <div style="display: inline;" class="depa text-center">
-              <span style="padding: 3px;margin:10px">₹ {{flight.price}}</span><br>
-            </div>
-            
-            
-          </div>
-              <div  class="card-footer ">
-                <span style="font-size: large;">{{flight.title}}</span>
-  
-                <button mat-raised-button color=warn type="submit" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;float:right">Book</button>
-              </div>
-          <!-- <div style="display:flex;justify-content: flex-end;font-size:smaller;color:gray"> Non refundable </div> -->
+      <div class="depa text-center">
+        <span>
+          {{flight.depart}}</span>
+        <br><span class="sub">{{flight.from_city_id}}</span>
       </div>
+
+      <div class="duration text-center">
+        <mat-icon style="transform: rotate(90deg);">flight </mat-icon><br>
+        <span class="sub">{{flight.duration}}</span>
+      </div>
+
+      <div class="depa text-center">
+        <span>
+          {{flight.arrive}}
+        </span>
+        <br>
+        <span class="sub">
+          {{flight.to_city_id}}
+        </span>
+      </div>
+
+      <span class="example-spacer"></span>
+
+      <div class="depa text-center">
+        <span style="padding: 3px;margin:10px">₹ {{flight.price}}</span><br>
+      </div>
+
+    </div>
+
+    <div class="card-footer ">
+      <span style="font-size: large;">{{flight.title}}</span>
+      <button mat-raised-button color=warn type="submit" style="float:right">Book</button>
+    </div>
+  </div>
 </div>
-
-
- 
+</div>

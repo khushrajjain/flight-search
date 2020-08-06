@@ -5,6 +5,7 @@
     font-style: round($number: 0);
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    display: inline;
 
 
 }
@@ -12,6 +13,8 @@
 .duration{
     padding-left: 15px;
     padding-right: 15px;
+    display: inline-block;
+    margin:15px;
 
 }
 
@@ -26,7 +29,11 @@
 
 }
 
-
+.card{
+    max-width: 600px;
+    margin: auto;
+    overflow: auto;
+}
 .sub{
     font-size: small;
     color: gray;
@@ -35,3 +42,4 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
