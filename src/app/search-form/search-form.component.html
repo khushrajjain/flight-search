@@ -1,5 +1,5 @@
 <div class="container text-center shadow" >
-  <h2><mat-icon>search</mat-icon> Search</h2>
+  <h2><mat-icon>search</mat-icon> Search </h2>
     <form [formGroup]="form"  method="post" (click)="onSubmit(group.value)">
       <p>
         <mat-form-field appearance="outline">
@@ -16,7 +16,6 @@
             {{city.city_name}} ({{city.IATA_code}})</mat-option>
           </mat-autocomplete>
           <mat-icon matPrefix>flight_takeoff</mat-icon>
-          <mat-hint>Hint</mat-hint>
         </mat-form-field>
 
         <span>&nbsp;</span>
@@ -78,7 +77,6 @@
           [formControl]="Pass_count">
 
           <mat-icon matPrefix>perm_identity</mat-icon>
-          <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
       <p>
