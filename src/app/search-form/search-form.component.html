@@ -1,5 +1,5 @@
 
-<div class="container text-center">
+<div class="container text-center" >
     <div style="margin: auto;">
     <p>
         <mat-form-field appearance="outline">
@@ -45,14 +45,14 @@
             <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field> -->
           <mat-form-field appearance="outline" >
-            <mat-label>Onward Journey</mat-label>
+            <mat-label>Departure Date</mat-label>
             <input matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         <span>&nbsp;</span>
           <mat-form-field appearance="outline"*ngIf="(group.value === 'twoway')">
-            <mat-label>Return Journey</mat-label>
+            <mat-label>Return Date</mat-label>
             <input matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>

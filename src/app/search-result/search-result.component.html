@@ -1,26 +1,45 @@
 <div class="container">
  
 
-    <div class="card mb-3" style="max-width: 540px;margin:auto;" *ngFor="let aa of [{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'}];">
-        <!-- <div class="row no-gutters">
-          
-          <div class="col-md-9">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="card mb-3 " style="overflow:auto;margin:auto;" *ngFor="let aa of [{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'},{val:'edede'}];">
+ 
+       <div style="display: flex;" >
+
+            <span class="logo">
+              <img src="https://www.webdesignerdepot.com/cdn-origin/uploads/2009/03/qantas2.gif" alt="..." 
+              class="rounded-sm" 
+              style="width: 80px">
+            </span>
+
+            <div style="display: inline;" class="depa text-center">
+              <span>
+                12:30</span>
+                <br><span class="sub">BLR</span>
             </div>
+
+            <div style="display: inline-block;margin:15px"  class="duration text-center">
+              <mat-icon style="transform: rotate(90deg);">flight </mat-icon><br>
+              <span class="sub">2h 20m</span>
+
+            </div>
+            <div style="display: inline;" class="depa text-center">
+              <span>
+                12:30</span>
+                <br><span class="sub">DEL</span>
+            </div>
+
+            <span class="example-spacer"></span>
+             <div style="display: inline;" class="depa text-center">
+              <span style="padding: 3px;margin:10px">₹ 10000</span><br>
+            </div>
+            
+            <div style="justify-content: center;margin-top:35px;margin-right:10px">
+
+              <button mat-raised-button color=warn type="submit" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Book</button>
+            </div>
+            
           </div>
-        </div> -->
-       <div style="display: flex;">
-            <span class="logo"><img src="https://www.webdesignerdepot.com/cdn-origin/uploads/2009/03/qantas2.gif" alt="..." class="rounded-sm" style="width: 80px"></span>
-            <div style="display: inline;" class="depa"><span>
-                12</span>
-                <br><span>qw</span>
-            </div>
-            <div style="display: inline;"  class="duration">2</div>
-            <span class="arr">42</span>
-        </div>
+          <!-- <div style="display:flex;justify-content: flex-end;font-size:smaller;color:gray"> Non refundable </div> -->
       </div>
 </div>
 
