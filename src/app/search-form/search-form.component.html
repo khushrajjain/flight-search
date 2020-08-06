@@ -1,78 +1,91 @@
-
-<div class="container text-center" >
-    <div style="margin: auto;">
-    <p>
+<div class="container text-center">
+  <div style="margin: auto;">
+    <form [formGroup]="form"  method="post" (click)="onSubmit(group.value)">
+      <p>
         <mat-form-field appearance="outline">
           <mat-label>Departure</mat-label>
-          <!-- <input matInput placeholder="Placeholder"> -->
-          <mat-select>
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
+          <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="departure"
+           [matAutocomplete]="autodep">
+          <mat-autocomplete #autodep="matAutocomplete">
+            <mat-option [(value)]="city.city_name" 
+            
+            *ngFor="let city of filteredOptionsDep | async">
+            {{city.city_name}} ({{city.IATA_code}})</mat-option>
+          </mat-autocomplete>
           <mat-icon matPrefix>flight_takeoff</mat-icon>
           <mat-hint>Hint</mat-hint>
         </mat-form-field>
-  
+
         <span>&nbsp;</span>
-       
+
         <mat-form-field appearance="outline">
           <mat-label>Arrival</mat-label>
-          <!-- <input matInput placeholder="Placeholder"> -->
-          <mat-select>
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
+          <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="arrival"
+           [matAutocomplete]="autoarr">
+          <mat-autocomplete #autoarr="matAutocomplete">
+            <mat-option [(value)]="city.city_name" *ngFor="let city of filteredOptionsArr | async">{{city.city_name}} ({{city.IATA_code}})</mat-option>
+          </mat-autocomplete>
           <mat-icon matPrefix>flight_land</mat-icon>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+      </p>
+      <p>
+        <mat-button-toggle-group #group="matButtonToggleGroup" value="oneway" >
+          <mat-button-toggle value="twoway" aria-label="Text align left" class="mat-elevation-z3">
+            <span>
+              <mat-icon>swap_horiz </mat-icon>Round Trip
+            </span>
+          </mat-button-toggle>
+
+          <mat-button-toggle value="oneway" aria-label="Text align center">
+            <span>Oneway<mat-icon>arrow_forward </mat-icon></span>
+          </mat-button-toggle>
+
+        </mat-button-toggle-group>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Departure Date</mat-label>
+          <input matInput [matDatepicker]="pickerd" [formControl]="pickerdep">
+          <mat-datepicker-toggle matSuffix [for]="pickerd"></mat-datepicker-toggle>
+          <mat-datepicker #pickerd></mat-datepicker>
+        </mat-form-field>
+
+        <span>&nbsp;</span>
+
+        <mat-form-field appearance="outline" *ngIf="(group.value === 'twoway')">
+          <mat-label>Return Date</mat-label>
+          <input matInput [matDatepicker]="pickera" [formControl]="pickerarr">
+          <mat-datepicker-toggle matSuffix [for]="pickera"></mat-datepicker-toggle>
+          <mat-datepicker #pickera></mat-datepicker>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>No. Passenger</mat-label>
+          <input type="number" matInput placeholder="Placeholder"
+          matInput
+          [formControl]="Pass_count">
+
+          <mat-icon matPrefix>perm_identity</mat-icon>
           <mat-hint>Hint</mat-hint>
         </mat-form-field>
       </p>
       <p>
-        <mat-button-toggle-group  #group="matButtonToggleGroup" value ="oneway">
-            <mat-button-toggle value="twoway" aria-label="Text align left" class="mat-elevation-z3">
-              <span><mat-icon>swap_horiz </mat-icon>Round Trip</span>
-            </mat-button-toggle>
 
-            <mat-button-toggle value="oneway" aria-label="Text align center">
-              <span>Oneway<mat-icon>arrow_forward </mat-icon></span>
-            </mat-button-toggle>
- 
-          </mat-button-toggle-group>
+        <button mat-stroked-button type="submit" style="min-width: 230px;border:2px solid black">Search</button>
       </p>
-
-      <p>
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Value binding</mat-label>
-            <input matInput [matDatepicker]="picker3" [value]="date.value">
-            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3></mat-datepicker>
-          </mat-form-field> -->
-          <mat-form-field appearance="outline" >
-            <mat-label>Departure Date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        <span>&nbsp;</span>
-          <mat-form-field appearance="outline"*ngIf="(group.value === 'twoway')">
-            <mat-label>Return Date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline">
-            <mat-label>No. Passenger</mat-label>
-            <input type="number" matInput placeholder="Placeholder">
-            
-            <mat-icon matPrefix>perm_identity</mat-icon>
-            <mat-hint>Hint</mat-hint>
-          </mat-form-field>
-      </p>
-      <p>
-
-          <button mat-stroked-button type="submit" style="min-width: 230px;border:2px solid black">Search</button>
-      </p>
-
-    
-    </div>
-</div>
-
+    </form>
+  </div>
+</div> 
